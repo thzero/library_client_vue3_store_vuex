@@ -1,9 +1,9 @@
 {
   "name": "@thzero/library_client_vue3_store_vuex",
-  "version": "0.16.9",
+  "version": "0.16.10",
   "version_major": 0,
   "version_minor": 16,
-  "version_patch": 9,
+  "version_patch": 10,
   "version_date": "11/23/2022",
   "description": "An opinionated library for vue3 with vuex store for the library_client_vue3.",
   "author": "thZero",
@@ -25,7 +25,7 @@
     "@thzero/library_client": "^0.16",
     "@thzero/library_client_vue3": "^0.16",
     "@thzero/library_common": "^0.16",
-    "@vuelidate/core": "^2.0.0-alpha.40",
+    "@vuelidate/core": "^2.0.0",
     "vue": "^3.2.13",
     "vuex": "^4.0.2",
     "vuex-persist": "^3.1.3"
