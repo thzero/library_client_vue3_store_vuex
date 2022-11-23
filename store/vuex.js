@@ -6,11 +6,11 @@ import GlobalUtility from '@thzero/library_client/utility/global';
 
 import NotImplementedError from '@thzero/library_common/errors/notImplemented';
 
-import adminNews from './admin/news';
-import adminUsers from './admin/users';
+import adminNews from './admin/news/vuex';
+import adminUsers from './admin/users/vuex';
 
-import news from './news';
-import user from '@thzero/library_client_vue3/store/user/vuex';
+import news from './news/vuex';
+import user from './user/vuex';
 
 class BaseStore {
 	async initialize() {
@@ -42,6 +42,10 @@ class BaseStore {
 		this.store.$logger = GlobalUtility.$injector.getService(LibraryConstants.InjectorKeys.SERVICE_LOGGER);
 		GlobalUtility.$store = this.store;
 		return this.store;
+	}
+
+	setup() {
+		return null;
 	}
 
 	_addModule(name, module) {
