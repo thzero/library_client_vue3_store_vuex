@@ -3,7 +3,7 @@
   "version": "0.16.9",
   "version_major": 0,
   "version_minor": 16,
-  "version_patch": 9,
+  "version_patch": 10,
   "version_date": "11/25/2022",
   "description": "An opinionated library for vue3 with vuex store for the library_client_vue3.",
   "author": "thZero",
