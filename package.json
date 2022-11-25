@@ -1,10 +1,10 @@
 {
   "name": "@thzero/library_client_vue3_store_vuex",
-  "version": "0.16.8",
+  "version": "0.16.9",
   "version_major": 0,
   "version_minor": 16,
-  "version_patch": 8,
-  "version_date": "11/22/2022",
+  "version_patch": 9,
+  "version_date": "11/25/2022",
   "description": "An opinionated library for vue3 with vuex store for the library_client_vue3.",
   "author": "thZero",
   "license": "MIT",
