@@ -10,7 +10,7 @@ import adminNews from './admin/news';
 import adminUsers from './admin/users';
 
 import news from './news';
-import user from '@thzero/library_client_vue3/store/user/vuex';
+import user from './user';
 
 class BaseStore {
 	async initialize() {
@@ -42,6 +42,10 @@ class BaseStore {
 		this.store.$logger = GlobalUtility.$injector.getService(LibraryConstants.InjectorKeys.SERVICE_LOGGER);
 		GlobalUtility.$store = this.store;
 		return this.store;
+	}
+
+	setup() {
+		return null;
 	}
 
 	_addModule(name, module) {
