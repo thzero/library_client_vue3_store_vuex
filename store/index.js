@@ -6,11 +6,11 @@ import GlobalUtility from '@thzero/library_client/utility/global';
 
 import NotImplementedError from '@thzero/library_common/errors/notImplemented';
 
-import adminNews from './admin/news/vuex';
-import adminUsers from './admin/users/vuex';
+import adminNews from './admin/news';
+import adminUsers from './admin/users';
 
-import news from './news/vuex';
-import user from './user/vuex';
+import news from './news';
+import user from './user';
 
 class BaseStore {
 	async initialize() {
