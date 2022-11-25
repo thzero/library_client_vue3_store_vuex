@@ -6,4 +6,12 @@
 
 An opinionated library for vue3 with vuex store for the library_client_vue3.
 
+## Requirements
+
+### NodeJs
+
+[NodeJs](https://nodejs.org) version 18+
+
+## Installation
+
 [![NPM](https://nodei.co/npm/@thzero/library_common.png?compact=true)](https://npmjs.org/package/@thzero/library_client_vue3_store_vuex)
