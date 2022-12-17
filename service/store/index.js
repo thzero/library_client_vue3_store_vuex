@@ -14,6 +14,10 @@ class VuexStoreService extends Service {
 	get state() {
 		return GlobalUtility.$store.state;
 	}
+
+	get user() {
+		return GlobalUtility.$store.user;
+	}
 }
 
 export default VuexStoreService;
