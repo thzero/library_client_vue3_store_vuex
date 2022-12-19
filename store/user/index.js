@@ -10,6 +10,7 @@ const store = {
 		authCompleted: false,
 		claims: null,
 		isLoggedIn: false,
+		theme: 'defaultTheme',
 		token: null,
 		tokenResult: null,
 		user: null
@@ -26,14 +27,23 @@ const store = {
 		async resetUser({ commit }, correlationId) {
 			commit('resetUser', correlationId);
 		},
-		async setUserAuthCompleted({ commit }, params) {
-			commit('setUserAuthCompleted', params);
+		async setAuthCompleted({ commit }, params) {
+			commit('setAuthCompleted', params);
 		},
-		async setUserClaims({ commit }, params) {
-			commit('setUserClaims', params);
+		async setClaims({ commit }, params) {
+			commit('setClaims', params);
 		},
-		async setUserLoggedIn({ commit }, params) {
-			commit('setUserLoggedIn', params);
+		async setLoggedIn({ commit }, params) {
+			commit('setLoggedIn', params);
+		},
+		async setTheme({ commit }, params) {
+			commit('setTheme', params);
+		},
+		async setTokenResult({ commit }, params) {
+			commit('setTokenResult', params);
+		},
+		async setUser({ commit }, params) {
+			commit('setUser', params);
 		},
 		async setUserSettings({ commit }, params) {
 			const service = GlobalUtility.$injector.getService(LibraryConstants.InjectorKeys.SERVICE_USER);
@@ -43,12 +53,6 @@ const store = {
 			if (Response.hasSucceeded(response) && response.results)
 				commit('setUserSettings', { correlationId: params.correlationId, user: response.results });
 			return response;
-		},
-		async setUserTokenResult({ commit }, params) {
-			commit('setUserTokenResult', params);
-		},
-		async setUser({ commit }, params) {
-			commit('setUser', params);
 		}
 	},
 	mutations: {
@@ -60,26 +64,29 @@ const store = {
 			state.tokenResult = null;
 			state.user = null;
 		},
-		setUserAuthCompleted(state, params) {
+		setAuthCompleted(state, params) {
 			state.authCompleted = params.authCompleted;
 		},
-		setUserClaims(state, params) {
+		setClaims(state, params) {
 			state.claims = params.claims;
 		},
-		setUserLoggedIn(state, params) {
+		setLoggedIn(state, params) {
 			state.isLoggedIn = params.isLoggedIn;
 		},
-		setUserSettings(state, params) {
-			params.user.settings = VueUtility.settings().mergeUser(params.correlationId, params.user.settings);
-			state.user = params.user;
+		async setTheme(e, params) {
+			state.theme = params.theme;
 		},
-		setUserTokenResult(state, params) {
+		setTokenResult(state, params) {
 			state.tokenResult = params.tokenResult;
 			state.token = params.tokenResult ? params.tokenResult.token : null;
 		},
 		setUser(state, params) {
 			if (params.user)
 				params.user.settings = VueUtility.settings().mergeUser(params.correlationId, params.user.settings);
+			state.user = params.user;
+		},
+		setUserSettings(state, params) {
+			params.user.settings = VueUtility.settings().mergeUser(params.correlationId, params.user.settings);
 			state.user = params.user;
 		}
 	},
@@ -91,22 +98,25 @@ const store = {
 			await GlobalUtility.$store.dispatch('resetUser', correlationId);
 		},
 		async setAuthCompleted(correlationId, authCompleted) {
-			await GlobalUtility.$store.dispatch('setUserAuthCompleted', { correlationId: correlationId, authCompleted: authCompleted });
+			await GlobalUtility.$store.dispatch('setAuthCompleted', { correlationId: correlationId, authCompleted: authCompleted });
 		},
 		async setClaims(correlationId, claims) {
-			await GlobalUtility.$store.dispatch('setUserClaims', { correlationId: correlationId, authCompleted: claims });
+			await GlobalUtility.$store.dispatch('setClaims', { correlationId: correlationId, authCompleted: claims });
 		},
 		async setLoggedIn(correlationId, isLoggedIn) {
-			await GlobalUtility.$store.dispatch('setUserLoggedIn', { correlationId: correlationId, isLoggedIn: isLoggedIn });
+			await GlobalUtility.$store.dispatch('setLoggedIn', { correlationId: correlationId, isLoggedIn: isLoggedIn });
 		},
-		async setUserSettings(correlationId, settings) {
-			return await GlobalUtility.$store.dispatch('setUserSettings', { correlationId: correlationId, settings: settings });
+		async setTheme(correlationId, theme) {
+			await GlobalUtility.$store.dispatch('setTheme', { correlationId: correlationId, theme: theme });
 		},
 		async setTokenResult(correlationId, tokenResult) {
-			await GlobalUtility.$store.dispatch('setUserTokenResult', { correlationId: correlationId, tokenResult: tokenResult });
+			await GlobalUtility.$store.dispatch('setTokenResult', { correlationId: correlationId, tokenResult: tokenResult });
 		},
 		async setUser(correlationId, user) {
 			await GlobalUtility.$store.dispatch('setUser', { correlationId: correlationId, user: user });
+		},
+		async setUserSettings(correlationId, settings) {
+			return await GlobalUtility.$store.dispatch('setUserSettings', { correlationId: correlationId, settings: settings });
 		}
 	}
 };
