@@ -16,7 +16,31 @@ class VuexStoreService extends Service {
 	}
 
 	get user() {
-		return GlobalUtility.$store.user;
+		return GlobaGlobalUtility.$store.state.user.user;
+	}
+	
+	get userClaims() {
+		return GlobalUtility.$store.store.state.claims;
+	}
+	
+	get userToken() {
+		return GlobalUtility.$store.store.state.token;
+	}
+	
+	get userAuthCompleted() {
+		return GlobalUtility.$store.store.state.authCompleted;
+	}
+	
+	get userAuthIsLoggedIn() {
+		return GlobalUtility.$store.store.state.isLoggedIn;
+	}
+	
+	get userTheme() {
+		return GlobalUtility.$store.store.state.theme;
+	}
+	
+	get userTokenResult() {
+		return GlobalUtility.$store.store.state.tokenResult;
 	}
 }
 
