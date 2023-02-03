@@ -1,46 +1,46 @@
-import GlobalUtility from '@thzero/library_client/utility/global';
+import LibraryClientUtility from '@thzero/library_client/utility/index';
 
 import Service from '@thzero/library_client/service/index';
 
 class VuexStoreService extends Service {
 	get dispatcher() {
-		return GlobalUtility.$store.dispatcher;
+		return LibraryClientUtility.$store.dispatcher;
 	}
 
 	get getters() {
-		return GlobalUtility.$store.getters;
+		return LibraryClientUtility.$store.getters;
 	}
 
 	get state() {
-		return GlobalUtility.$store.state;
+		return LibraryClientUtility.$store.state;
 	}
 
 	get user() {
-		return GlobaGlobalUtility.$store.state.user.user;
+		return GlobaLibraryClientUtility.$store.state.user.user;
 	}
 	
 	get userClaims() {
-		return GlobalUtility.$store.store.state.claims;
+		return LibraryClientUtility.$store.store.state.claims;
 	}
 	
 	get userToken() {
-		return GlobalUtility.$store.store.state.token;
+		return LibraryClientUtility.$store.store.state.token;
 	}
 	
 	get userAuthCompleted() {
-		return GlobalUtility.$store.store.state.authCompleted;
+		return LibraryClientUtility.$store.store.state.authCompleted;
 	}
 	
 	get userAuthIsLoggedIn() {
-		return GlobalUtility.$store.store.state.isLoggedIn;
+		return LibraryClientUtility.$store.store.state.isLoggedIn;
 	}
 	
 	get userTheme() {
-		return GlobalUtility.$store.store.state.theme;
+		return LibraryClientUtility.$store.store.state.theme;
 	}
 	
 	get userTokenResult() {
-		return GlobalUtility.$store.store.state.tokenResult;
+		return LibraryClientUtility.$store.store.state.tokenResult;
 	}
 }
 

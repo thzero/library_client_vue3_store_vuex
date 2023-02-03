@@ -27,7 +27,7 @@ Setup the 'store/store.js' as follows:
 import Vue from 'vue';
 import VuexPersist from 'vuex-persist';
 
-import LibraryConstants from '@thzero/library_client_vue/constants';
+import LibraryClientConstants from '@thzero/library_client_vue/constants';
 
 import BaseStore from '@/library_vue/store';
 
@@ -41,7 +41,7 @@ class AppStore extends BaseStore {
 			},
 			actions: {
 				async getVersion({ commit }, correlationId) {
-					const service = GlobalUtility.$injector.getService(LibraryConstants.InjectorKeys.SERVICE_VERSION);
+					const service = LibraryClientUtility.$injector.getService(LibraryClientConstants.InjectorKeys.SERVICE_VERSION);
 					const version = await service.version(correlationId);
 					this.$logger.debug('store', 'getVersion', 'version', version, correlationId);
 					commit('setVersion', { correlationId : correlationId, version: version });
@@ -63,10 +63,10 @@ class AppStore extends BaseStore {
 			},
 			dispatcher: {
 				async getVersion(correlationId) {
-					await GlobalUtility.$store.dispatch('getVersion', correlationId);
+					await LibraryClientUtility.$store.dispatch('getVersion', correlationId);
 				},
 				async initialize(correlationId) {
-					await GlobalUtility.$store.dispatch('initialize', correlationId);
+					await LibraryClientUtility.$store.dispatch('initialize', correlationId);
 				}
 			}
 		};

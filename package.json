@@ -1,10 +1,10 @@
 {
   "name": "@thzero/library_client_vue3_store_vuex",
-  "version": "0.16.17",
+  "version": "0.17.1",
   "version_major": 0,
-  "version_minor": 16,
-  "version_patch": 17,
-  "version_date": "12/20/2022",
+  "version_minor": 17,
+  "version_patch": 1,
+  "version_date": "02/02/2023",
   "description": "An opinionated library for vue3 with vuex store for the library_client_vue3.",
   "author": "thZero",
   "license": "MIT",
@@ -22,9 +22,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@thzero/library_client": "^0.16",
-    "@thzero/library_client_vue3": "^0.16",
-    "@thzero/library_common": "^0.16",
+    "@thzero/library_client": "^0.17",
+    "@thzero/library_client_vue3": "^0.17",
+    "@thzero/library_common": "^0.17",
     "vue": "^3.2.45",
     "vuex": "^4.1.0",
     "vuex-persist": "^3.1.3"
